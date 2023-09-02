@@ -49,6 +49,58 @@ console.log(deleteOccur(arr,ele));
 //Output: [23,4,78,5,63,45,210];
 
 
-let seen= {};
-seen[9] = true
-console.log(seen);
+//Complete the findDuplicate function
+// Do not alter the starter code.
+
+let arr1 = [4, 2, 34, 4, 1, 12, 1, 4];
+function findDuplicate(arr){
+    let newArr = [];
+    let seen = {};
+    
+    for(let i = 0; i<arr.length; i++){
+        if(seen[arr[i]]){
+            if(!newArr.includes(arr[i])){
+                newArr.push(arr[i]);
+            }
+        }
+        else{
+            seen[arr[i]] = true;
+        }
+    }
+    return newArr
+}    
+console.log("findDuplicate:-", findDuplicate(arr1));
+
+//------------------print only first 5 even number
+
+const inputs = [11, 32, 12, 45, 65, 94, 7, 78, 10, 100, 131, 67, 81, 92, 53];
+
+function evenNumber(arr){
+    let newArr = [];
+    // let count = 0;
+
+    for(let i of arr){
+        if(i%2 === 0 && newArr.length < 5){
+            newArr.push(i);
+            // count++;
+        }
+    }
+    return newArr;
+}
+
+console.log("even number:-", evenNumber(inputs));
+
+//---------------spread operator
+const aprilBatch = ["Tina", "Akash"];
+const mayBatch = ["Ritik", "Annu", "Anjali"];
+const juneBatch = ["Saba", "Ajit"];
+const julyBatch = [];
+
+function studentDetails(batch, name){
+    batch.push(name);
+    console.log(batch);
+}
+
+studentDetails(mayBatch, "Neha");
+studentDetails(juneBatch, "Neha");
+
