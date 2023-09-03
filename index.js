@@ -114,29 +114,15 @@ a = [1,2,4,5,7];
 b = [3,4,6,7,9,0];
 function mergeArray(arr1,arr2){
     //Implemet your function here
-    let newArr = [];
-    let seen = {};
-    
+    let newSet = new Set();
     for(let i of arr1){
-        if(!seen[i]){
-            if(!newArr.includes(i)){
-                newArr.push(i);
-                seen[i] = true;
-            }
-        }
+        newSet.add(i);
     }
-
 
     for(let i of arr2){
-        if(!seen[i]){
-            if(!newArr.includes(i)){
-                newArr.push(i);
-                seen[i] = true;
-            }
-        }
+        newSet.add(i);
     }
-
-    return newArr;
+    return [...newSet];
 }
 console.log(mergeArray(a,b));
 //Output : [1,2,4,5,7,3,6,9,0]
