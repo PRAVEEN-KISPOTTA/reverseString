@@ -104,3 +104,40 @@ function studentDetails(batch, name){
 studentDetails(mayBatch, "Neha");
 studentDetails(juneBatch, "Neha");
 
+
+//----------------Non Duplicate array
+
+//complete the function mergeArray
+//Do not alter the starter code.
+
+a = [1,2,4,5,7];
+b = [3,4,6,7,9,0];
+function mergeArray(arr1,arr2){
+    //Implemet your function here
+    let newArr = [];
+    let seen = {};
+    
+    for(let i of arr1){
+        if(!seen[i]){
+            if(!newArr.includes(i)){
+                newArr.push(i);
+                seen[i] = true;
+            }
+        }
+    }
+
+
+    for(let i of arr2){
+        if(!seen[i]){
+            if(!newArr.includes(i)){
+                newArr.push(i);
+                seen[i] = true;
+            }
+        }
+    }
+
+    return newArr;
+}
+console.log(mergeArray(a,b));
+//Output : [1,2,4,5,7,3,6,9,0]
+
