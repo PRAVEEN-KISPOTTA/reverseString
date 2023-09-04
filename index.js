@@ -127,3 +127,85 @@ function mergeArray(arr1,arr2){
 console.log(mergeArray(a,b));
 //Output : [1,2,4,5,7,3,6,9,0]
 
+
+
+const studentMarks = {
+    John: [85, 90, 92, 88, 87],
+    Jane: [92, 95, 89, 91, 94],
+    David: [78, 85, 90, 92, 84],
+    Emily: [90, 88, 92, 87, 91],
+    Michael: [86, 92, 90, 89, 94]
+    };
+    function findClassTopper(studentMarks) {
+        let highestAverage = 0;
+        let topper = "";
+      
+        for (const studentName in studentMarks) {
+          const marks = studentMarks[studentName];
+          console.log(marks)
+          const totalMarks = marks.reduce((total, mark) => total + mark, 0);
+          const average = totalMarks / marks.length;
+      
+          if (average > highestAverage) {
+            highestAverage = average;
+            topper = studentName;
+          }
+        }
+      
+        return topper;
+      }
+
+      
+      console.log(findClassTopper(studentMarks)); // Output: "Jane"
+
+
+      //---------------------------------
+      //complete the calculatePrice function
+//Do not alter the starter code
+    const goods = {
+        apple: { price: 150, quantity: 2 },
+        banana: { price: 75, quantity: 3 },
+        orange: { price: 125, quantity: 1 }
+        };    
+        function calculatePrice(goods){
+            //Implement your function here
+
+            let totalPrice = 0;
+            for(let item in goods){
+                const quantity = goods[item];
+                totalPrice += quantity.price*quantity.quantity;
+            }
+            return totalPrice;
+        }
+        console.log("Total price:-",calculatePrice(goods));
+        //output : 650
+
+
+        //--------------------------------------
+
+        //Complete the URLconstructor function 
+// Do not change the starter code. 
+
+function URLconstructor(queryParameters, domain, path) {
+    // Initialize an empty array to store the query parameters
+    const queryParamsArray = [];
+  
+    // Loop through the queryParameters object and create key-value pairs
+    for (const key in queryParameters) {
+      if (queryParameters.hasOwnProperty(key)) {
+        queryParamsArray.push(`${key}=${queryParameters[key]}`);
+      }
+    }
+  
+    // Join the query parameters with '&' and construct the URL
+    const queryString = queryParamsArray.join('&');
+    const url = `https://${domain}${path}?${queryString}`;
+  
+    return url;
+  }
+    const queryParameters = {name:'John',age:'28'}; 
+    const domain = "google.com";
+    const path = '/search';
+    console.log(URLconstructor(queryParameters,domain,path));
+    //output: https://google.com/search?name=John&age=28
+      
