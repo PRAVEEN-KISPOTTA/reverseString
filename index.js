@@ -186,23 +186,21 @@ const studentMarks = {
         //Complete the URLconstructor function 
 // Do not change the starter code. 
 
-function URLconstructor(queryParameters, domain, path) {
-    // Initialize an empty array to store the query parameters
-    const queryParamsArray = [];
-  
-    // Loop through the queryParameters object and create key-value pairs
-    for (const key in queryParameters) {
-      if (queryParameters.hasOwnProperty(key)) {
-        queryParamsArray.push(`${key}=${queryParameters[key]}`);
-      }
+
+function URLconstructor(queryParameters,domain,path){
+    let finalurl = "";
+    finalurl += "https://";
+    finalurl += domain;
+    finalurl += path;
+    for( let key in queryParameters){
+        finalurl += '?';
+        finalurl += key;
+        finalurl += '=';
+        finalurl += queryParameters[key];
     }
-  
-    // Join the query parameters with '&' and construct the URL
-    const queryString = queryParamsArray.join('&');
-    const url = `https://${domain}${path}?${queryString}`;
-  
-    return url;
-  }
+    return finalurl; 
+}
+
     const queryParameters = {name:'John',age:'28'}; 
     const domain = "google.com";
     const path = '/search';
