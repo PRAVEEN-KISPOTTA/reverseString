@@ -207,3 +207,19 @@ function URLconstructor(queryParameters,domain,path){
     console.log(URLconstructor(queryParameters,domain,path));
     //output: https://google.com/search?name=John&age=28
       
+
+
+
+    let username = "praveen";
+
+function reverseString(name){
+    let str = "";
+    for(let i = name.length-1; i>=0; i--){
+        str += name.charAt(i);
+    }
+    return str;
+}
+
+const res = reverseString(username);
+console.log(res);
+
